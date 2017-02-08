@@ -5,11 +5,11 @@ namespace Miura\Providers;
 use Plenty\Modules\Payment\Events\Checkout\ExecutePayment;
 use Plenty\Modules\Payment\Events\Checkout\GetPaymentMethodContent;
 use Plenty\Plugin\ServiceProvider;
-use Invoice\Helper\InvoiceHelper;
+use Miura\Helper\MiuraHelper;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodContainer;
 use Plenty\Plugin\Events\Dispatcher;
 
-use Invoice\Methods\InvoicePaymentMethod;
+use Miura\Methods\MiuraPaymentMethod;
 
 use Plenty\Modules\Basket\Events\Basket\AfterBasketChanged;
 use Plenty\Modules\Basket\Events\BasketItem\AfterBasketItemAdd;
