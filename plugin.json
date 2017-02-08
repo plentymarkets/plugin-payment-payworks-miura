@@ -1,0 +1,11 @@
+{
+  "version": 1.0,
+  "name": "Miura",
+  "description": "miura plugin for plentymarkets",
+  "author": "plentymarkets GmbH",
+  "keywords": ["miura", "methode of payment", "official", "plentymarkets", "payment"],
+  "type": "payment",
+  "namespace": "Miura",
+  "require": [],
+  "serviceProvider": "Miura\\Providers\\MiuraServiceProvider"
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "tab": "Settings",
+    "key": "name",
+    "label": "Miura",
+    "type": "text",
+    "default": "Invoice"
+  },
+  {
+    "tab": "Settings",
+    "key": "name",
+    "label": "merchant.identifier",
+    "type": "text",
+    "default": ""
+  },
+  {
+    "tab": "Settings",
+    "key": "merchant.secret-key",
+    "label": "Merchant Secret Key",
+    "type": "text",
+    "default": ""
+  },
+  {
+    "tab": "Settings",
+    "key": "infoPage.intern",
+    "label": "Internal information page",
+    "type": "category_select"
+  },
+  {
+    "tab": "Settings",
+    "key": "infoPage.extern",
+    "label": "External information page",
+    "type": "text",
+    "default": ""
+  }
+]
