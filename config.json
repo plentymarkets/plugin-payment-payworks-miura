@@ -1,23 +1,72 @@
 [
   {
-    "tab": "Settings",
-    "key": "name",
-    "label": "Miura",
+    "tab": "Miura-VISA",
+    "key": "miura-visa.merchant-identifier",
+    "label": "Merchant Identifier",
     "type": "text",
-    "default": "Invoice"
+    "default": "Merchant Identifier"
   },
   {
-    "tab": "Settings",
-    "key": "name",
-    "label": "merchant.identifier",
-    "type": "text",
-    "default": ""
-  },
-  {
-    "tab": "Settings",
-    "key": "merchant.secret-key",
+    "tab": "Miura-VISA",
+    "key": "miura-visa.merchant-secret-key",
     "label": "Merchant Secret Key",
     "type": "text",
-    "default": ""
+    "default": "Merchant Secret Key"
+  },
+  {
+    "tab": "Miura-VISA Electron",
+    "key": "miura-visa-electron.merchant-identifier",
+    "label": "Merchant Identifier",
+    "type": "text",
+    "default": "Merchant Identifier"
+  },
+  {
+    "tab": "Miura-VISA Electron",
+    "key": "miura-visa-electron.merchant-secret-key",
+    "label": "Merchant Secret Key",
+    "type": "text",
+    "default": "Merchant Secret Key"
+  },
+  {
+    "tab": "Miura-MasterCard",
+    "key": "miura-mastercard.merchant-identifier",
+    "label": "Merchant Identifier",
+    "type": "text",
+    "default": "Merchant Identifier"
+  },
+  {
+    "tab": "Miura-MasterCard",
+    "key": "miura-mastercard.merchant-secret-key",
+    "label": "Merchant Secret Key",
+    "type": "text",
+    "default": "Merchant Secret Key"
+  },
+  {
+    "tab": "Miura-American Express",
+    "key": "miura-american-express.merchant-identifier",
+    "label": "Merchant Identifier",
+    "type": "text",
+    "default": "Merchant Identifier"
+  },
+  {
+    "tab": "Miura-American Express",
+    "key": "miura-american-express.merchant-secret-key",
+    "label": "Merchant Secret Key",
+    "type": "text",
+    "default": "Merchant Secret Key"
+  },
+  {
+    "tab": "Miura-Maestro",
+    "key": "miura-maestro.merchant-identifier",
+    "label": "Merchant Identifier",
+    "type": "text",
+    "default": "Merchant Identifier"
+  },
+  {
+    "tab": "Miura-Maestro",
+    "key": "miura-maestro.merchant-secret-key",
+    "label": "Merchant Secret Key",
+    "type": "text",
+    "default": "Merchant Secret Key"
   }
 ]

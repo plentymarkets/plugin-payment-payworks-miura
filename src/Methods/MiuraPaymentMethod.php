@@ -2,6 +2,7 @@
 
 namespace Miura\Methods;
 
+use Miura\Helper\MiuraHelper;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Plugin\ConfigRepository;
 use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
@@ -58,15 +59,7 @@ class MiuraPaymentMethod extends PaymentMethodService
      */
     public function getName( ConfigRepository $configRepository ):string
     {
-        $name = $configRepository->get('Miura.name');
-
-        if(!strlen($name))
-        {
-            $name = 'Miura';
-        }
-
-        return $name;
-
+        return MiuraHelper::PAYMENT_METHOD_NAME;
     }
 
 

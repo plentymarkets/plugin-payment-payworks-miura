@@ -12,6 +12,11 @@ use Plenty\Modules\Payment\Method\Models\PaymentMethod;
  */
 class MiuraHelper
 {
+
+    const PAY_METHOD_NOT_FOUND = 'no_paymentmethod_found';
+    const MIURA_PLUGIN_KEY = 'plenty_miura';
+    const MIURA_PAYMENT_KEY = 'MIURA';
+    const PAYMENT_METHOD_NAME = 'Miura';
     /**
      * @var PaymentMethodRepositoryContract $paymentMethodRepository
      */
@@ -33,11 +38,11 @@ class MiuraHelper
     public function createMopIfNotExists()
     {
         // Check whether the ID of the Invoice payment method has been created
-        if($this->getPaymentMethod() == 'no_paymentmethod_found')
+        if($this->getPaymentMethod() == PAY_METHOD_NOT_FOUND)
         {
-            $paymentMethodData = array( 'pluginKey' => 'plenty_miura',
-                                        'paymentKey' => 'MIURA',
-                                        'name' => 'Miura');
+            $paymentMethodData = array( 'pluginKey' => MIURA_PLUGIN_KEY,
+                                        'paymentKey' => MIURA_PAYMENT_KEY,
+                                        'name' => PAYMENT_METHOD_NAME);
 
             $this->paymentMethodRepository->createPaymentMethod($paymentMethodData);
         }
@@ -51,19 +56,19 @@ class MiuraHelper
      */
     public function getPaymentMethod()
     {
-        $paymentMethods = $this->paymentMethodRepository->allForPlugin('plenty_miura');
+        $paymentMethods = $this->paymentMethodRepository->allForPlugin(MIURA_PLUGIN_KEY);
 
         if( !is_null($paymentMethods) )
         {
             foreach($paymentMethods as $paymentMethod)
             {
-                if($paymentMethod->paymentKey == 'MIURA')
+                if($paymentMethod->paymentKey == MIURA_PAYMENT_KEY)
                 {
                     return $paymentMethod->id;
                 }
             }
         }
 
-        return 'no_paymentmethod_found';
+        return PAY_METHOD_NOT_FOUND;
     }
 }

@@ -40,7 +40,7 @@ use Plenty\Modules\Basket\Events\Basket\AfterBasketCreate;
          // Create the ID of the payment method if it doesn't exist yet
          $paymentHelper->createMopIfNotExists();
 
-         // Register the Invoice payment method in the payment method container
+         // Register the Miura payment method in the payment method container
          $payContainer->register('plenty_miura::MIURA', MiuraPaymentMethod::class,
                                 [ AfterBasketChanged::class, AfterBasketItemAdd::class, AfterBasketCreate::class ]
          );
