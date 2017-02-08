@@ -33,19 +33,19 @@ class MiuraPaymentMethod extends PaymentMethodService
 
         /**
          * Check whether the invoice address is the same as the shipping address
-         */
+
         if( $configRepository->get('Invoice.invoiceAddressEqualShippingAddress') == 1)
         {
             $active = false;
-        }
+        }*/
 
         /**
         * Check whether the user is logged in
-        */
+
         if( $configRepository->get('Invoice.disallowInvoiceForGuest') == 1)
         {
             $active = false;
-        }
+        }*/
 
         return $active;
     }
@@ -72,24 +72,13 @@ class MiuraPaymentMethod extends PaymentMethodService
 
 
     /**
-     * Get the description of the payment method. The description can be entered in the config.json.
+     * Get the description of the payment method.
      *
      * @param ConfigRepository $configRepository
      * @return string
      */
     public function getDescription( ConfigRepository $configRepository ):string
     {
-        if($configRepository->get('Invoice.infoPage.type') == 1)
-        {
-            return $configRepository->get('Invoice.infoPage.intern');
-        }
-        elseif ($configRepository->get('Invoice.infoPage.type') == 2)
-        {
-            return $configRepository->get('Invoice.infoPage.extern');
-        }
-        else
-        {
-          return '';
-        }
+        return 'No description';
     }
 }

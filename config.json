@@ -19,18 +19,5 @@
     "label": "Merchant Secret Key",
     "type": "text",
     "default": ""
-  },
-  {
-    "tab": "Settings",
-    "key": "infoPage.intern",
-    "label": "Internal information page",
-    "type": "category_select"
-  },
-  {
-    "tab": "Settings",
-    "key": "infoPage.extern",
-    "label": "External information page",
-    "type": "text",
-    "default": ""
   }
 ]
