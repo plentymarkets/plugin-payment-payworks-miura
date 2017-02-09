@@ -2,6 +2,7 @@
 
 namespace Miura\Providers;
 
+use Miura\Controllers\MiuraController;
 use Miura\Helper\MiuraHelper;
 use Plenty\Plugin\RouteServiceProvider;
 use Plenty\Plugin\Routing\Router;
@@ -27,6 +28,7 @@ use Plenty\Plugin\Log\Loggable;
      public function map(Router $router)
      {
          // simple echo to check that rest works for this plugin
+         //callable as "{SHOP_URL}miura/echo" => dev enviroment "http://master.plentymarkets.com/miura/echo"
          $router->get('miura/echo', 'Miura\Controllers\MiuraController@echoIt');
      }
  }
