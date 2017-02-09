@@ -7,13 +7,14 @@ use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Plugin\ConfigRepository;
 use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
 use Plenty\Modules\Basket\Models\Basket;
-
+use Plenty\Plugin\Log\Loggable;
 /**
  * Class MiuraPaymentMethod
  * @package Miura\Methods
  */
 class MiuraPaymentMethod extends PaymentMethodService
 {
+    use Loggable;
     /**
      * Check the configuration if the payment method is active
      * Return true if the payment method is active, else return false
@@ -25,6 +26,8 @@ class MiuraPaymentMethod extends PaymentMethodService
     public function isActive( ConfigRepository $configRepository,
                               BasketRepositoryContract $basketRepositoryContract):bool
     {
+
+        $this->getLogger(MiuraHelper::LOGGER_KEY)->debug(__CLASS__.'->'.__FUNCTION__);
         /** @var bool $active */
         $active = true;
 
@@ -59,6 +62,7 @@ class MiuraPaymentMethod extends PaymentMethodService
      */
     public function getName( ConfigRepository $configRepository ):string
     {
+        $this->getLogger(MiuraHelper::LOGGER_KEY)->debug(__CLASS__.'->'.__FUNCTION__);
         return MiuraHelper::PAYMENT_METHOD_NAME;
     }
 
@@ -72,6 +76,7 @@ class MiuraPaymentMethod extends PaymentMethodService
      */
     public function getDescription( ConfigRepository $configRepository ):string
     {
+        $this->getLogger(MiuraHelper::LOGGER_KEY)->debug(__CLASS__.'->'.__FUNCTION__);
         return 'No description';
     }
 }

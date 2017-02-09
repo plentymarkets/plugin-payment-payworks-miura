@@ -4,6 +4,7 @@ namespace Miura\Helper;
 
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodRepositoryContract;
 use Plenty\Modules\Payment\Method\Models\PaymentMethod;
+use Plenty\Plugin\Log\Loggable;
 
 /**
  * Class MiuraHelper
@@ -13,10 +14,13 @@ use Plenty\Modules\Payment\Method\Models\PaymentMethod;
 class MiuraHelper
 {
 
+    use Loggable;
+
     const PAY_METHOD_NOT_FOUND = 'no_paymentmethod_found';
     const MIURA_PLUGIN_KEY = 'plenty_miura';
     const MIURA_PAYMENT_KEY = 'MIURA';
     const PAYMENT_METHOD_NAME = 'Miura';
+    const LOGGER_KEY = 'MiuraPayment';
     /**
      * @var PaymentMethodRepositoryContract $paymentMethodRepository
      */
@@ -37,12 +41,13 @@ class MiuraHelper
      */
     public function createMopIfNotExists()
     {
-        // Check whether the ID of the Invoice payment method has been created
-        if($this->getPaymentMethod() == PAY_METHOD_NOT_FOUND)
+        $this->getLogger(self::LOGGER_KEY)->debug(__CLASS__.'->'.__FUNCTION__);
+        // Check whether the ID of the Miura payment method has been created
+        if($this->getPaymentMethod() == self::PAY_METHOD_NOT_FOUND)
         {
-            $paymentMethodData = array( 'pluginKey' => MIURA_PLUGIN_KEY,
-                                        'paymentKey' => MIURA_PAYMENT_KEY,
-                                        'name' => PAYMENT_METHOD_NAME);
+            $paymentMethodData = array( 'pluginKey' => self::MIURA_PLUGIN_KEY,
+                                        'paymentKey' => self::MIURA_PAYMENT_KEY,
+                                        'name' => self::PAYMENT_METHOD_NAME);
 
             $this->paymentMethodRepository->createPaymentMethod($paymentMethodData);
         }
@@ -56,19 +61,20 @@ class MiuraHelper
      */
     public function getPaymentMethod()
     {
-        $paymentMethods = $this->paymentMethodRepository->allForPlugin(MIURA_PLUGIN_KEY);
+        $this->getLogger(self::LOGGER_KEY)->debug(__CLASS__.'->'.__FUNCTION__);
+        $paymentMethods = $this->paymentMethodRepository->allForPlugin(self::MIURA_PLUGIN_KEY);
 
         if( !is_null($paymentMethods) )
         {
             foreach($paymentMethods as $paymentMethod)
             {
-                if($paymentMethod->paymentKey == MIURA_PAYMENT_KEY)
+                if($paymentMethod->paymentKey == self::MIURA_PAYMENT_KEY)
                 {
                     return $paymentMethod->id;
                 }
             }
         }
 
-        return PAY_METHOD_NOT_FOUND;
+        return self::PAY_METHOD_NOT_FOUND;
     }
 }

@@ -14,6 +14,7 @@ use Miura\Methods\MiuraPaymentMethod;
 use Plenty\Modules\Basket\Events\Basket\AfterBasketChanged;
 use Plenty\Modules\Basket\Events\BasketItem\AfterBasketItemAdd;
 use Plenty\Modules\Basket\Events\Basket\AfterBasketCreate;
+use Plenty\Plugin\Log\Loggable;
 
 /**
  * Class InvoiceServiceProvider
@@ -21,9 +22,12 @@ use Plenty\Modules\Basket\Events\Basket\AfterBasketCreate;
  */
  class MiuraServiceProvider extends ServiceProvider
  {
+     use Loggable;
+
      public function register()
      {
-
+         $this->getLogger(MiuraHelper::LOGGER_KEY)->debug(__CLASS__.'->'.__FUNCTION__);
+         $this->getApplication()->register(MiuraRouteServiceProvider::class);
      }
 
      /**
@@ -37,11 +41,13 @@ use Plenty\Modules\Basket\Events\Basket\AfterBasketCreate;
                             PaymentMethodContainer $payContainer,
                             Dispatcher $eventDispatcher)
      {
+         $this->getLogger(MiuraHelper::LOGGER_KEY)->debug(__CLASS__.'->'.__FUNCTION__);
+
          // Create the ID of the payment method if it doesn't exist yet
          $paymentHelper->createMopIfNotExists();
 
          // Register the Miura payment method in the payment method container
-         $payContainer->register('plenty_miura::MIURA', MiuraPaymentMethod::class,
+         $payContainer->register(MiuraHelper::MIURA_PLUGIN_KEY.'::'.MiuraHelper::MIURA_PAYMENT_KEY, MiuraPaymentMethod::class,
                                 [ AfterBasketChanged::class, AfterBasketItemAdd::class, AfterBasketCreate::class ]
          );
 
