@@ -1,7 +1,6 @@
 <?php
 namespace Miura\Controllers;
 
-use Miura\Helper\MiuraHelper;
 use Plenty\Plugin\Controller;
 use Plenty\Plugin\Http\Request;
 use Plenty\Plugin\Log\Loggable;
@@ -20,7 +19,15 @@ class MiuraController  extends Controller
      */
     public function echoIt(Request $request) {
 
-        $this->getLogger(MiuraHelper::LOGGER_KEY)->debug(__CLASS__.'->'.__FUNCTION__);
         return array('test' => 'kay');
+    }
+
+    public function methods(Request $request) {
+        return [
+            'visa' => ['foo' => 'bar']
+        ];
+    }
+    public function methodByKey(Request $request) {
+        return [];
     }
 }

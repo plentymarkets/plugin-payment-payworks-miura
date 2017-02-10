@@ -1,8 +1,8 @@
 ![plentymarkets Logo](http://www.plentymarkets.eu/layout/pm/images/logo/plentymarkets-logo.jpg)
 
-# Invoice plugin for plentymarkets 7.x
+# Miura plugin for plentymarkets 7.x
 
-This is the official **Miura** plugin developed by plentymarkets. Integrate the payment method **Invoice** in your plentymarkets 7 online store.
+This is the official **Miura** plugin developed by plentymarkets. Integrate the payment method **Miura** in your plentymarkets 7 online store.
 
 ## Requirements
 

@@ -3,7 +3,7 @@
 namespace Miura\Providers;
 
 use Miura\Controllers\MiuraController;
-use Miura\Helper\MiuraHelper;
+use Miura\Helper\PaymentHelper;
 use Plenty\Plugin\RouteServiceProvider;
 use Plenty\Plugin\Routing\Router;
 
@@ -19,7 +19,7 @@ use Plenty\Plugin\Log\Loggable;
 
      public function register()
      {
-         $this->getLogger(MiuraHelper::LOGGER_KEY)->debug(__CLASS__.'->'.__FUNCTION__);
+         $this->getLogger(PaymentHelper::LOGGER_KEY)->debug(__CLASS__.'->'.__FUNCTION__);
      }
 
      /**
@@ -30,5 +30,7 @@ use Plenty\Plugin\Log\Loggable;
          // simple echo to check that rest works for this plugin
          //callable as "{SHOP_URL}miura/echo" => dev enviroment "http://master.plentymarkets.com/miura/echo"
          $router->get('miura/echo', 'Miura\Controllers\MiuraController@echoIt');
+         $router->get('miura/methods', 'Miura\Controllers\MiuraController@methods');
+         $router->get('miura/methods/{methodKey}', 'Miura\Controllers\MiuraController@methodByKey');
      }
  }

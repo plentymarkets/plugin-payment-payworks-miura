@@ -14,6 +14,13 @@
     "default": "Merchant Secret Key"
   },
   {
+    "tab": "Miura-VISA",
+    "key": "miura-visa.description",
+    "label": "Description",
+    "type": "text",
+    "default": "Description"
+  },
+  {
     "tab": "Miura-VISA Electron",
     "key": "miura-visa-electron.merchant-identifier",
     "label": "Merchant Identifier",
@@ -26,6 +33,13 @@
     "label": "Merchant Secret Key",
     "type": "text",
     "default": "Merchant Secret Key"
+  },
+  {
+    "tab": "Miura-VISA Electron",
+    "key": "miura-visa-electron.description",
+    "label": "Description",
+    "type": "text",
+    "default": "Description"
   },
   {
     "tab": "Miura-MasterCard",
@@ -42,6 +56,13 @@
     "default": "Merchant Secret Key"
   },
   {
+    "tab": "Miura-MasterCard",
+    "key": "miura-mastercard.description",
+    "label": "Description",
+    "type": "text",
+    "default": "Description"
+  },
+  {
     "tab": "Miura-American Express",
     "key": "miura-american-express.merchant-identifier",
     "label": "Merchant Identifier",
@@ -56,6 +77,13 @@
     "default": "Merchant Secret Key"
   },
   {
+    "tab": "Miura-American Express",
+    "key": "miura-american-express.description",
+    "label": "Description",
+    "type": "text",
+    "default": "Description"
+  },
+  {
     "tab": "Miura-Maestro",
     "key": "miura-maestro.merchant-identifier",
     "label": "Merchant Identifier",
@@ -68,5 +96,12 @@
     "label": "Merchant Secret Key",
     "type": "text",
     "default": "Merchant Secret Key"
+  },
+  {
+    "tab": "Miura-Maestro",
+    "key": "miura-maestro.description",
+    "label": "Description",
+    "type": "text",
+    "default": "Description"
   }
 ]
