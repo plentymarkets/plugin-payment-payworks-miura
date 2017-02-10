@@ -2,14 +2,16 @@
 
 namespace Miura\Helper;
 
+use Miura\Methods\MiuraAmericanExpressPaymentMethod;
+use Miura\Methods\MiuraMaestroPaymentMethod;
+use Miura\Methods\MiuraVisaElectronPaymentMethod;
+use Miura\Methods\MiuraVisaPaymentMethod;
+use Plenty\Modules\Frontend\Session\Storage\Models\Order;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodRepositoryContract;
-use Plenty\Modules\Payment\Method\Models\PaymentMethod;
-use Plenty\Plugin\Log\Loggable;
 use Plenty\Modules\Payment\Models\Payment;
+use Plenty\Plugin\Log\Loggable;
 use Plenty\Modules\Order\Contracts\OrderRepositoryContract;
-use Plenty\Modules\Order\Models\Order;
 use Plenty\Modules\Payment\Contracts\PaymentOrderRelationRepositoryContract;
-use Plenty\Modules\Payment\Contracts\PaymentRepositoryContract;
 /**
  * Class PaymentHelper
  *
@@ -21,15 +23,10 @@ class PaymentHelper
     use Loggable;
 
     const PAY_METHOD_NOT_FOUND = 'no_paymentmethod_found';
+    const MIURA_PLUGIN_NAME = 'Miura'; //same as in plugin.json
     const MIURA_PLUGIN_KEY = 'plenty_miura';
-    const MIURA_PAYMENT_KEY = 'MIURA';
-    const PAYMENT_METHOD_NAME = 'Miura';
     const LOGGER_KEY = 'MiuraPayment';
-    const MIURA_AMERICAN_EXPRESS_MOP_KEY = '';
-    const MIURA_MAESTRO_MOP_KEY = '';
-    const MIURA_MASTER_CARD_MOP_KEY = '';
-    const MIURA_VISA_ELECTRON_MOP_KEY = '';
-    const MIURA_VISA_MOP_KEY = '';
+
     /**
      * @var PaymentMethodRepositoryContract $paymentMethodRepository
      */
@@ -58,61 +55,78 @@ class PaymentHelper
     }
 
     /**
-     * Load the ID of the payment method for the given plugin key
+     * Load the ID of the Miura American Express payment method
      * Return the ID for the payment method
      *
      * @return string|int
      */
     public function getMiuraAmericanExpressPaymentMethodId()
     {
-        return $this->checkMethodKey(self::MIURA_AMERICAN_EXPRESS_MOP_KEY);
+        return $this->checkMethodKey(MiuraAmericanExpressPaymentMethod::PAYMENT_METHOD_KEY);
     }
 
     /**
-     * Load the ID of the payment method for the given plugin key
+     * Load the ID of the Miura Maestro payment method
      * Return the ID for the payment method
      *
      * @return string|int
      */
     public function getMiuraMaestroPaymentMethodId()
     {
-        return $this->checkMethodKey(self::MIURA_MAESTRO_MOP_KEY);
+        return $this->checkMethodKey(MiuraMaestroPaymentMethod::PAYMENT_METHOD_KEY);
     }
 
     /**
-     * Load the ID of the payment method for the given plugin key
+     * Load the ID of the Miura Master Card payment method
      * Return the ID for the payment method
      *
      * @return string|int
      */
     public function getMiuraMasterCardPaymentMethodId()
     {
-        return $this->checkMethodKey(self::MIURA_MASTER_CARD_MOP_KEY);
+        return $this->checkMethodKey(MiuraMaestroPaymentMethod::PAYMENT_METHOD_KEY);
     }
 
     /**
-     * Load the ID of the payment method for the given plugin key
+     * Load the ID of the Miura Visa Electron payment method
      * Return the ID for the payment method
      *
      * @return string|int
      */
     public function getMiuraVisaElectronPaymentMethodId()
     {
-        return $this->checkMethodKey(self::MIURA_VISA_ELECTRON_MOP_KEY);
+        return $this->checkMethodKey(MiuraVisaElectronPaymentMethod::PAYMENT_METHOD_KEY);
     }
 
     /**
-     * Load the ID of the payment method for the given plugin key
+     * Load the ID of the Miura Visa payment method
      * Return the ID for the payment method
      *
      * @return string|int
      */
     public function getMiuraVisaPaymentMethodId()
     {
-
-        return $this->checkMethodKey(self::MIURA_VISA_MOP_KEY);
+        return $this->checkMethodKey(MiuraVisaPaymentMethod::PAYMENT_METHOD_KEY);
     }
 
+    /**
+     * Assign the payment to an order in plentymarkets
+     *
+     * @param Payment $payment
+     * @param int $orderId
+     */
+    public function assignPlentyPaymentToPlentyOrder(Payment $payment, int $orderId)
+    {
+        // Get the order by the given order ID
+        $order = $this->orderRepository->findOrderById($orderId);
+
+        // Check whether the order truly exists in plentymarkets
+        if(!is_null($order) && $order instanceof Order)
+        {
+            // Assign the given payment to the given order
+            $this->paymentOrderRelationRepo->createOrderRelation($payment, $order);
+        }
+    }
     /**
      * @param string $methodKey
      * @return int|string
@@ -135,4 +149,23 @@ class PaymentHelper
         return self::PAY_METHOD_NOT_FOUND;
     }
 
+    public function isMiuraMopId($mopId) {
+
+        if($this->getMiuraAmericanExpressPaymentMethodId() == $mopId)
+            return true;
+
+        if($this->getMiuraMaestroPaymentMethodId() == $mopId)
+            return true;
+
+        if($this->getMiuraMasterCardPaymentMethodId() == $mopId)
+            return true;
+
+        if($this->getMiuraVisaElectronPaymentMethodId() == $mopId)
+            return true;
+
+        if($this->getMiuraVisaPaymentMethodId() == $mopId)
+            return true;
+
+        return false;
+    }
 }

@@ -11,7 +11,7 @@ use Miura\Helper\PaymentHelper;
  * Migration to create payment mehtods
  *
  * Class CreatePaymentMethod
- * @package PayPal\Migrations
+ * @package Miura\Migrations
  */
 class CreatePaymentMethod
 {
@@ -43,7 +43,7 @@ class CreatePaymentMethod
     public function run()
     {
 
-        // Check whether the ID of the PayPal payment method has been created
+        // Check whether the ID of the Miura American Express payment method has been created
         if($this->paymentHelper->getMiuraAmericanExpressPaymentMethodId() == PaymentHelper::PAY_METHOD_NOT_FOUND)
         {
             $paymentMethodData = array( 'pluginKey' => PaymentHelper::MIURA_PLUGIN_KEY,
@@ -52,7 +52,7 @@ class CreatePaymentMethod
             $this->paymentMethodRepositoryContract->createPaymentMethod($paymentMethodData);
         }
 
-        // Check whether the ID of the PayPal Express payment method has been created
+        // Check whether the ID of the Miura Maestro payment method has been created
         if($this->paymentHelper->getMiuraMaestroPaymentMethodId() == PaymentHelper::PAY_METHOD_NOT_FOUND)
         {
             $paymentMethodData = array( 'pluginKey'   => PaymentHelper::MIURA_PLUGIN_KEY,
@@ -61,7 +61,7 @@ class CreatePaymentMethod
             $this->paymentMethodRepositoryContract->createPaymentMethod($paymentMethodData);
         }
 
-        // Check whether the ID of the PayPal Express payment method has been created
+        // Check whether the ID of the Miura Master Card payment method has been created
         if($this->paymentHelper->getMiuraMasterCardPaymentMethodId() == PaymentHelper::PAY_METHOD_NOT_FOUND)
         {
             $paymentMethodData = array( 'pluginKey'   => PaymentHelper::MIURA_PLUGIN_KEY,
@@ -70,7 +70,7 @@ class CreatePaymentMethod
             $this->paymentMethodRepositoryContract->createPaymentMethod($paymentMethodData);
         }
 
-        // Check whether the ID of the PayPal Express payment method has been created
+        // Check whether the ID of the Miura Visa Electron payment method has been created
         if($this->paymentHelper->getMiuraVisaElectronPaymentMethodId() == PaymentHelper::PAY_METHOD_NOT_FOUND)
         {
             $paymentMethodData = array( 'pluginKey'   => PaymentHelper::MIURA_PLUGIN_KEY,
@@ -79,7 +79,7 @@ class CreatePaymentMethod
             $this->paymentMethodRepositoryContract->createPaymentMethod($paymentMethodData);
         }
 
-        // Check whether the ID of the PayPal Express payment method has been created
+        // Check whether the ID of the Miura Visa payment method has been created
         if($this->paymentHelper->getMiuraVisaPaymentMethodId() == PaymentHelper::PAY_METHOD_NOT_FOUND)
         {
             $paymentMethodData = array( 'pluginKey'   => PaymentHelper::MIURA_PLUGIN_KEY,

@@ -2,6 +2,7 @@
 
 namespace Miura\Methods;
 
+use Miura\Helper\PaymentHelper;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Plugin\ConfigRepository;
 use Plenty\Plugin\Log\Loggable;
@@ -37,8 +38,8 @@ class MiuraVisaPaymentMethod extends PaymentMethodService
      */
     public function isActive():bool
     {
-        $miuraVisaMerchantIdentifier = trim($this->configRepository->get('Miura.miura-visa.merchant-identifier'));
-        $miuraVisaMerchantSecretKey = trim($this->configRepository->get('Miura.miura-visa.merchant-secret-key'));
+        $miuraVisaMerchantIdentifier = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-visa.merchant-identifier'));
+        $miuraVisaMerchantSecretKey = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-visa.merchant-secret-key'));
 
         if(strlen($miuraVisaMerchantIdentifier) > 0 && strlen($miuraVisaMerchantSecretKey) > 0)
             return true;
@@ -73,7 +74,7 @@ class MiuraVisaPaymentMethod extends PaymentMethodService
      */
     public function getDescription( ):string
     {
-        $description = $this->configRepository->get('Miura.miura-visa.description');
+        $description = $this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-visa.description');
 
         $description = trim($description);
         return $description;

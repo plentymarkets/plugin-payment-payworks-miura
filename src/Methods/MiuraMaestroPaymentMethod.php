@@ -2,6 +2,7 @@
 
 namespace Miura\Methods;
 
+use Miura\Helper\PaymentHelper;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Plugin\ConfigRepository;
 use Plenty\Plugin\Log\Loggable;
@@ -38,8 +39,8 @@ class MiuraMaestroPaymentMethod extends PaymentMethodService
     public function isActive():bool
     {
 
-        $miuraMaestroMerchantIdentifier = trim($this->configRepository->get('Miura.miura-maestro.merchant-identifier'));
-        $miuraMaestroMerchantSecretKey = trim($this->configRepository->get('Miura.miura-maestro.merchant-secret-key'));
+        $miuraMaestroMerchantIdentifier = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-maestro.merchant-identifier'));
+        $miuraMaestroMerchantSecretKey = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-maestro.merchant-secret-key'));
 
         if(strlen($miuraMaestroMerchantIdentifier) > 0 && strlen($miuraMaestroMerchantSecretKey) > 0)
             return true;
@@ -74,7 +75,7 @@ class MiuraMaestroPaymentMethod extends PaymentMethodService
      */
     public function getDescription( ):string
     {
-        $description = $this->configRepository->get('Miura.miura-maestro.description');
+        $description = $this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-maestro.description');
 
         $description = trim($description);
         return $description;

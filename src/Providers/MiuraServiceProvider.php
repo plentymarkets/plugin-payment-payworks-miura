@@ -3,16 +3,18 @@
 namespace Miura\Providers;
 
 use Miura\Methods\MiuraAmericanExpressPaymentMethod;
-use Plenty\Modules\Payment\Events\Checkout\ExecutePayment;
-use Plenty\Modules\Payment\Events\Checkout\GetPaymentMethodContent;
-use Plenty\Plugin\ServiceProvider;
+use Miura\Methods\MiuraMaestroPaymentMethod;
+use Miura\Methods\MiuraMasterCardPaymentMethod;
+use Miura\Methods\MiuraVisaElectronPaymentMethod;
+use Miura\Methods\MiuraVisaPaymentMethod;
 use Miura\Helper\PaymentHelper;
-use Plenty\Modules\Payment\Method\Contracts\PaymentMethodContainer;
-use Plenty\Plugin\Events\Dispatcher;
 
+use Plenty\Modules\Payment\Method\Contracts\PaymentMethodContainer;
 use Plenty\Modules\Basket\Events\Basket\AfterBasketChanged;
 use Plenty\Modules\Basket\Events\BasketItem\AfterBasketItemAdd;
 use Plenty\Modules\Basket\Events\Basket\AfterBasketCreate;
+
+use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Log\Loggable;
 
 /**
@@ -31,45 +33,35 @@ use Plenty\Plugin\Log\Loggable;
      /**
       * Boot additional services for the payment method
       *
-      * @param PaymentHelper $paymentHelper
       * @param PaymentMethodContainer $payContainer
-      * @param Dispatcher $eventDispatcher
       */
-     public function boot(  PaymentHelper $paymentHelper,
-                            PaymentMethodContainer $payContainer,
-                            Dispatcher $eventDispatcher)
+     public function boot(  PaymentMethodContainer $payContainer )
      {
-         $logger = $this->getLogger(PaymentHelper::LOGGER_KEY);
 
+         $paymentMethodsToRegister = [
+             MiuraAmericanExpressPaymentMethod::PAYMENT_METHOD_KEY  => MiuraAmericanExpressPaymentMethod::class,
+             MiuraMaestroPaymentMethod::PAYMENT_METHOD_KEY          => MiuraMaestroPaymentMethod::class,
+             MiuraMasterCardPaymentMethod::PAYMENT_METHOD_KEY       => MiuraMasterCardPaymentMethod::class,
+             MiuraVisaElectronPaymentMethod::PAYMENT_METHOD_KEY     => MiuraVisaElectronPaymentMethod::class,
+             MiuraVisaPaymentMethod::PAYMENT_METHOD_KEY             => MiuraVisaPaymentMethod::class
+         ];
 
+         $this->registerPaymentMethods($paymentMethodsToRegister,$payContainer);
 
+     }
 
-         // Register the Miura payment method in the payment method container
-         $payContainer->register(PaymentHelper::MIURA_PLUGIN_KEY.'::'.PaymentHelper::MIURA_AMERICAN_EXPRESS_MOP_KEY , MiuraAmericanExpressPaymentMethod::class,
-                                [ AfterBasketChanged::class, AfterBasketItemAdd::class, AfterBasketCreate::class ]
-         );
+     /**
+      * @param array $paymentMethod
+      * @param PaymentMethodContainer $payContainer
+      */
+     private function registerPaymentMethods(array $paymentMethod, PaymentMethodContainer $payContainer) {
 
-         // Listen for the event that gets the payment method content
-         $eventDispatcher->listen(GetPaymentMethodContent::class,
-                 function(GetPaymentMethodContent $event) use( $paymentHelper, $logger)
-                 {
-                     if($event->getMop() == $paymentHelper->getMiuraAmericanExpressPaymentMethodId())
-                     {
-                         $event->setValue('');
-                         $event->setType('continue');
-                     }
-                 });
+         foreach ($paymentMethod as $paymentMethodKey => $paymentMethodClass) {
+             $payContainer->register(PaymentHelper::MIURA_PLUGIN_KEY.'::'.$paymentMethodKey , $paymentMethodClass,
+                 [ AfterBasketChanged::class, AfterBasketItemAdd::class, AfterBasketCreate::class ]
+             );
+         }
 
-         // Listen for the event that executes the payment
-         $eventDispatcher->listen(ExecutePayment::class,
-             function(ExecutePayment $event) use( $paymentHelper, $logger)
-             {
-                 if($event->getMop() == $paymentHelper->getMiuraAmericanExpressPaymentMethodId())
-                 {
-                     $event->setValue('<h1>Miura American Express kauf<h1>');
-                     $event->setType('htmlContent');
-                 }
-             });
      }
 
  }

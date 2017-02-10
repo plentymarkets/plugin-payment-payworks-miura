@@ -29,8 +29,10 @@ use Plenty\Plugin\Log\Loggable;
      {
          // simple echo to check that rest works for this plugin
          //callable as "{SHOP_URL}miura/echo" => dev enviroment "http://master.plentymarkets.com/miura/echo"
-         $router->get('miura/echo', 'Miura\Controllers\MiuraController@echoIt');
-         $router->get('miura/methods', 'Miura\Controllers\MiuraController@methods');
-         $router->get('miura/methods/{methodKey}', 'Miura\Controllers\MiuraController@methodByKey');
+         //$router->get('miura/echo', 'Miura\Controllers\MiuraController@echoIt');
+         $router->get('miura/methods', [
+             'middleware'   => 'oauth',
+             'uses'         =>'Miura\Controllers\MiuraController@configuration'
+         ]);
      }
  }

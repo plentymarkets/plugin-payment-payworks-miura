@@ -1,6 +1,7 @@
 <?php
 namespace Miura\Controllers;
 
+use Plenty\Modules\Plugin\DataBase\Contracts\DataBase;
 use Plenty\Plugin\Controller;
 use Plenty\Plugin\Http\Request;
 use Plenty\Plugin\Log\Loggable;
@@ -19,15 +20,19 @@ class MiuraController  extends Controller
      */
     public function echoIt(Request $request) {
 
-        return array('test' => 'kay');
+        return array('test' => 'okay');
     }
 
-    public function methods(Request $request) {
-        return [
-            'visa' => ['foo' => 'bar']
-        ];
-    }
-    public function methodByKey(Request $request) {
+    /**
+     * @param Request $request
+     * @return array
+     */
+    public function configuration(Request $request) {
+        /** @var DataBase $repository */
+        $repository = pluginApp(DataBase::class);
+
         return [];
+
     }
+
 }
