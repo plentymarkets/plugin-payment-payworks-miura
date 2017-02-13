@@ -28,8 +28,8 @@ use Plenty\Plugin\Log\Loggable;
      public function map(Router $router)
      {
          // simple echo to check that rest works for this plugin
-         //callable as "{SHOP_URL}miura/echo" => dev enviroment "http://master.plentymarkets.com/miura/echo"
-         //$router->get('miura/echo', 'Miura\Controllers\MiuraController@echoIt');
+         //callable as "{SHOP_URL}payworksmiura/echo" => dev enviroment "http://master.plentymarkets.com/miura/echo"
+         $router->get('payworksmiura/echo', 'MiuraPayworks\Controllers\PayworksMiuraController@echoIt');
          $router->get('payworksmiura/configuration', 'MiuraPayworks\Controllers\PayworksMiuraController@configuration');
      }
  }

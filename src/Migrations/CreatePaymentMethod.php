@@ -8,6 +8,8 @@ use MiuraPayworks\Methods\MiuraPayworksVisaElectronPaymentMethod;
 use MiuraPayworks\Methods\MiuraPayworksVisaPaymentMethod;
 use MiuraPayworks\Helper\PaymentHelper;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodRepositoryContract;
+
+use Plenty\Plugin\Log\Loggable;
 /**
  * Migration to create payment mehtods
  *
@@ -16,6 +18,8 @@ use Plenty\Modules\Payment\Method\Contracts\PaymentMethodRepositoryContract;
  */
 class CreatePaymentMethod
 {
+
+    use Loggable;
     /**
      * @var PaymentMethodRepositoryContract
      */
@@ -43,6 +47,8 @@ class CreatePaymentMethod
      */
     public function run()
     {
+
+        $this->getLogger(PaymentHelper::LOGGER_KEY)->debug(__CLASS__.' '.__FUNCTION__);
 
         // Check whether the ID of the Miura American Express payment method has been created
         if($this->paymentHelper->getMiuraAmericanExpressPaymentMethodId() == PaymentHelper::PAY_METHOD_NOT_FOUND)

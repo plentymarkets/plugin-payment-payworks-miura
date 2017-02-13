@@ -27,6 +27,7 @@ use Plenty\Plugin\Log\Loggable;
 
      public function register()
      {
+         $this->getLogger(PaymentHelper::LOGGER_KEY)->debug(__CLASS__.' '.__FUNCTION__);
          $this->getApplication()->register(MiuraPayworksRouteServiceProvider::class);
      }
 
@@ -37,7 +38,7 @@ use Plenty\Plugin\Log\Loggable;
       */
      public function boot( PaymentMethodContainer $payContainer )
      {
-
+         $this->getLogger(PaymentHelper::LOGGER_KEY)->debug(__CLASS__.' '.__FUNCTION__);
          $paymentMethodsToRegister = [
              MiuraPayworksAmericanExpressPaymentMethod::PAYMENT_METHOD_KEY  => MiuraPayworksAmericanExpressPaymentMethod::class,
              MiuraPayworksMaestroPaymentMethod::PAYMENT_METHOD_KEY          => MiuraPayworksMaestroPaymentMethod::class,
