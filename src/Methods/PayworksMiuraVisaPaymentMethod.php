@@ -40,6 +40,6 @@ class PayworksMiuraVisaPaymentMethod extends PaymentMethodService
      */
     public function getName( ConfigRepository $configRepository ):string
     {
-        return 'Payworks Miura Visa';
+        return 'PayworksMiura Visa';
     }
 }
