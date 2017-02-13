@@ -8,10 +8,10 @@ use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
 use Plenty\Modules\Basket\Models\Basket;
 
 /**
- * Class PayworksMiuraPaymentMethod
+ * Class PayworksMiuraVisaPaymentMethod
  * @package PayworksMiura\Methods
  */
-class PayworksMiuraPaymentMethod extends PaymentMethodService
+class PayworksMiuraVisaPaymentMethod extends PaymentMethodService
 {
     /**
      * Check the configuration if the payment method is active
@@ -40,6 +40,6 @@ class PayworksMiuraPaymentMethod extends PaymentMethodService
      */
     public function getName( ConfigRepository $configRepository ):string
     {
-        return 'PayworksMiura';
+        return 'Payworks Miura Visa';
     }
 }

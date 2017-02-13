@@ -33,11 +33,20 @@ class PayworksMiuraHelper
     public function createMopIfNotExists()
     {
         // Check whether the ID of the Invoice payment method has been created
-        if($this->getPaymentMethod() == 'no_paymentmethod_found')
+        if($this->getPaymentMethod('PAYWORKSMIURA_VISA') == 'no_paymentmethod_found')
         {
             $paymentMethodData = array( 'pluginKey' => 'plenty_payworks_miura',
-                                        'paymentKey' => 'PAYWORKSMIURA',
+                                        'paymentKey' => 'PAYWORKSMIURA_VISA',
                                         'name' => 'PayworksMiura');
+
+            $this->paymentMethodRepository->createPaymentMethod($paymentMethodData);
+        }
+        // Check whether the ID of the Invoice payment method has been created
+        if($this->getPaymentMethod('PAYWORKSMIURA_VISAELECTRON') == 'no_paymentmethod_found')
+        {
+            $paymentMethodData = array( 'pluginKey' => 'plenty_payworks_miura',
+                'paymentKey' => 'PAYWORKSMIURA_VISAELECTRON',
+                'name' => 'PayworksMiura');
 
             $this->paymentMethodRepository->createPaymentMethod($paymentMethodData);
         }
@@ -49,7 +58,7 @@ class PayworksMiuraHelper
      *
      * @return string|int
      */
-    public function getPaymentMethod()
+    private function getPaymentMethod($method)
     {
         $paymentMethods = $this->paymentMethodRepository->allForPlugin('plenty_payworks_miura');
 
@@ -57,7 +66,7 @@ class PayworksMiuraHelper
         {
             foreach($paymentMethods as $paymentMethod)
             {
-                if($paymentMethod->paymentKey == 'PAYWORKSMIURA')
+                if($paymentMethod->paymentKey == $method)
                 {
                     return $paymentMethod->id;
                 }
