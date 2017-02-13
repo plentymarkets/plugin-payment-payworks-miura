@@ -1,72 +1,30 @@
 [
   {
-    "tab": "Miura-VISA",
-    "key": "miuravisa-merchant_identifier",
+    "tab": "Einstellung",
+    "key": "merchant_identifier",
     "label": "Merchant Identifier",
     "type": "text",
-    "default": "Identifier"
+    "default": ""
   },
   {
-    "tab": "Miura-VISA",
-    "key": "miuravisa-merchant_secret_key",
+    "tab": "Einstellung",
+    "key": "merchant_secret_key",
     "label": "Merchant Secret Key",
     "type": "text",
-    "default": "Secret Key"
+    "default": ""
   },
   {
-    "tab": "Miura-VISA Electron",
-    "key": "miuravisaelectron-merchant_identifier",
-    "label": "Merchant Identifier",
+    "tab": "Einstellung",
+    "key": "sepa_lastschriftmandat",
+    "label": "SEPA-Lastschriftmandat",
     "type": "text",
-    "default": "Identifier"
+    "default": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
   },
   {
-    "tab": "Miura-VISA Electron",
-    "key": "miuravisaelectron-merchant_secret_key",
-    "label": "Merchant Secret Key",
+    "tab": "Einstellung",
+    "key": "datenschutzrechtliche_informationen",
+    "label": "Datenschutzrechtliche Informationen",
     "type": "text",
-    "default": "Secret Key"
-  },
-  {
-    "tab": "Miura-MasterCard",
-    "key": "miuramastercard-merchant_identifier",
-    "label": "Merchant Identifier",
-    "type": "text",
-    "default": "Identifier"
-  },
-  {
-    "tab": "Miura-MasterCard",
-    "key": "miuramastercard-merchant_secret_key",
-    "label": "Merchant Secret Key",
-    "type": "text",
-    "default": "Secret Key"
-  },
-  {
-    "tab": "Miura-American Express",
-    "key": "miuraamericanexpress-merchant_identifier",
-    "label": "Merchant Identifier",
-    "type": "text",
-    "default": "Identifier"
-  },
-  {
-    "tab": "Miura-American Express",
-    "key": "miuraamericanexpress-merchant_secret_key",
-    "label": "Merchant Secret Key",
-    "type": "text",
-    "default": "Secret Key"
-  },
-  {
-    "tab": "Miura-Maestro",
-    "key": "miuramaestro-merchant_identifier",
-    "label": "Merchant Identifier",
-    "type": "text",
-    "default": "Identifier"
-  },
-  {
-    "tab": "Miura-Maestro",
-    "key": "miuramaestro-merchant_secret_key",
-    "label": "Merchant Secret Key",
-    "type": "text",
-    "default": "Secret Key"
+    "default": "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
   }
 ]

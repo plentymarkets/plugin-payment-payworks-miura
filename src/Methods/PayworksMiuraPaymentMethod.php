@@ -8,10 +8,10 @@ use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
 use Plenty\Modules\Basket\Models\Basket;
 
 /**
- * Class PayworksMiuraVisaPaymentMethod
+ * Class PayworksMiuraPaymentMethod
  * @package PayworksMiura\Methods
  */
-class PayworksMiuraAmericanExpressPaymentMethod extends PaymentMethodService
+class PayworksMiuraPaymentMethod extends PaymentMethodService
 {
     /**
      * Check the configuration if the payment method is active
@@ -24,7 +24,7 @@ class PayworksMiuraAmericanExpressPaymentMethod extends PaymentMethodService
     public function isActive( ConfigRepository $configRepository,
                               BasketRepositoryContract $basketRepositoryContract):bool
     {
-        if( trim($configRepository->get('PayworksMiura.miuraamericanexpress-merchant_identifier')) != '' && trim($configRepository->get('PayworksMiura.miuraamericanexpress-merchant_secret_key')) !='')
+        if( trim($configRepository->get('PayworksMiura.merchant_identifier')) != '' && trim($configRepository->get('PayworksMiura.merchant_secret_key')) !='')
         {
             return true;
         }
@@ -40,6 +40,6 @@ class PayworksMiuraAmericanExpressPaymentMethod extends PaymentMethodService
      */
     public function getName( ConfigRepository $configRepository ):string
     {
-        return 'PayworksMiura American Express';
+        return 'PayworksMiura';
     }
 }
