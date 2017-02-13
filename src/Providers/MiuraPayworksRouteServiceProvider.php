@@ -1,19 +1,19 @@
 <?php //strict
 
-namespace Miura\Providers;
+namespace MiuraPayworks\Providers;
 
-use Miura\Controllers\MiuraController;
-use Miura\Helper\PaymentHelper;
+use MiuraPayworks\Controllers\MiuraPayworksPayworksController;
+use MiuraPayworks\Helper\PaymentHelper;
 use Plenty\Plugin\RouteServiceProvider;
 use Plenty\Plugin\Routing\Router;
 
 use Plenty\Plugin\Log\Loggable;
 
 /**
- * Class MiuraRouteServiceProvider
- * @package Miura\Providers
+ * Class MiuraPayworksRouteServiceProvider
+ * @package MiuraPayworks\Providers
  */
- class MiuraRouteServiceProvider extends RouteServiceProvider
+ class MiuraPayworksRouteServiceProvider extends RouteServiceProvider
  {
      use Loggable;
 
@@ -30,9 +30,6 @@ use Plenty\Plugin\Log\Loggable;
          // simple echo to check that rest works for this plugin
          //callable as "{SHOP_URL}miura/echo" => dev enviroment "http://master.plentymarkets.com/miura/echo"
          //$router->get('miura/echo', 'Miura\Controllers\MiuraController@echoIt');
-         $router->get('miura/methods', [
-             'middleware'   => 'oauth',
-             'uses'         =>'Miura\Controllers\MiuraController@configuration'
-         ]);
+         $router->get('payworksmiura/configuration', 'MiuraPayworks\Controllers\PayworksMiuraController@configuration');
      }
  }

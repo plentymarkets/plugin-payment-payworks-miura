@@ -1,28 +1,27 @@
 <?php //strict
 
-namespace Miura\Methods;
+namespace MiuraPayworks\Methods;
 
-use Miura\Helper\PaymentHelper;
+use MiuraPayworks\Helper\PaymentHelper;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Plugin\ConfigRepository;
 use Plenty\Plugin\Log\Loggable;
 /**
- * Class MiuraAmericanExpressPaymentMethod
- * @package Miura\Methods
+ * Class MiuraPayworksVisaElectronPaymentMethod
+ * @package MiuraPayworks\Methods
  */
-class MiuraAmericanExpressPaymentMethod extends PaymentMethodService
+class MiuraPayworksVisaElectronPaymentMethod extends PaymentMethodService
 {
     use Loggable;
-
-    const PAYMENT_METHOD_NAME = 'MiuraAmericanExpress';
-    const PAYMENT_METHOD_KEY = 'MIURA_AMERICAN_EXPRESS';
+    const PAYMENT_METHOD_NAME = 'MiuraPayworksVisaElectron';
+    const PAYMENT_METHOD_KEY = 'MIURA_VISA_ELECTRON';
     /**
      * @var ConfigRepository
      */
     private $configRepository;
 
     /**
-     * MiuraAmericanExpressPaymentMethod constructor.
+     * MiuraPayworksVisaElectronPaymentMethod constructor.
      *
      * @param ConfigRepository $configRepo
      */
@@ -39,10 +38,10 @@ class MiuraAmericanExpressPaymentMethod extends PaymentMethodService
      */
     public function isActive():bool
     {
-        $miuraAmericanExpressMerchantIdentifier = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-american-express_merchant-identifier'));
-        $miuraAmericanExpressMerchantSecretKey = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-american-express_merchant-secret-key'));
+        $miuraVisaElectronMerchantIdentifier = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-visa-electron_merchant-identifier'));
+        $miuraVisaElectronMerchantSecretKey = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-visa-electron_merchant-secret-key'));
 
-        if(strlen($miuraAmericanExpressMerchantIdentifier) > 0 && strlen($miuraAmericanExpressMerchantSecretKey) > 0)
+        if(strlen($miuraVisaElectronMerchantIdentifier) > 0 && strlen($miuraVisaElectronMerchantSecretKey) > 0)
             return true;
 
         return false;
@@ -60,7 +59,7 @@ class MiuraAmericanExpressPaymentMethod extends PaymentMethodService
 
 
     /**
-     * Get additional costs for Miura American Express. Additional costs can be entered in the config.json.
+     * Get additional costs for Miura. Additional costs can be entered in the config.json.
      *
      * @return float
      */
@@ -75,7 +74,7 @@ class MiuraAmericanExpressPaymentMethod extends PaymentMethodService
      */
     public function getDescription( ):string
     {
-        $description = $this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-american-express_description');
+        $description = $this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-visa-electron_description');
 
         $description = trim($description);
         return $description;

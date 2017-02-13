@@ -1,17 +1,18 @@
 <?php
-namespace Miura\Migrations;
-use Miura\Methods\MiuraAmericanExpressPaymentMethod;
-use Miura\Methods\MiuraMaestroPaymentMethod;
-use Miura\Methods\MiuraMasterCardPaymentMethod;
-use Miura\Methods\MiuraVisaElectronPaymentMethod;
-use Miura\Methods\MiuraVisaPaymentMethod;
+namespace MiuraPayworks\Migrations;
+
+use MiuraPayworks\Methods\MiuraPayworksAmericanExpressPaymentMethod;
+use MiuraPayworks\Methods\MiuraPayworksMaestroPaymentMethod;
+use MiuraPayworks\Methods\MiuraPayworksMasterCardPaymentMethod;
+use MiuraPayworks\Methods\MiuraPayworksVisaElectronPaymentMethod;
+use MiuraPayworks\Methods\MiuraPayworksVisaPaymentMethod;
+use MiuraPayworks\Helper\PaymentHelper;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodRepositoryContract;
-use Miura\Helper\PaymentHelper;
 /**
  * Migration to create payment mehtods
  *
  * Class CreatePaymentMethod
- * @package Miura\Migrations
+ * @package MiuraPayworks\Migrations
  */
 class CreatePaymentMethod
 {
@@ -47,8 +48,8 @@ class CreatePaymentMethod
         if($this->paymentHelper->getMiuraAmericanExpressPaymentMethodId() == PaymentHelper::PAY_METHOD_NOT_FOUND)
         {
             $paymentMethodData = array( 'pluginKey' => PaymentHelper::MIURA_PLUGIN_KEY,
-                'paymentKey' => MiuraAmericanExpressPaymentMethod::PAYMENT_METHOD_KEY,
-                'name' => MiuraAmericanExpressPaymentMethod::PAYMENT_METHOD_NAME);
+                'paymentKey' => MiuraPayworksAmericanExpressPaymentMethod::PAYMENT_METHOD_KEY,
+                'name' => MiuraPayworksAmericanExpressPaymentMethod::PAYMENT_METHOD_NAME);
             $this->paymentMethodRepositoryContract->createPaymentMethod($paymentMethodData);
         }
 
@@ -56,8 +57,8 @@ class CreatePaymentMethod
         if($this->paymentHelper->getMiuraMaestroPaymentMethodId() == PaymentHelper::PAY_METHOD_NOT_FOUND)
         {
             $paymentMethodData = array( 'pluginKey'   => PaymentHelper::MIURA_PLUGIN_KEY,
-                'paymentKey'  => MiuraMaestroPaymentMethod::PAYMENT_METHOD_KEY,
-                'name'        => MiuraMaestroPaymentMethod::PAYMENT_METHOD_NAME);
+                'paymentKey'  => MiuraPayworksMaestroPaymentMethod::PAYMENT_METHOD_KEY,
+                'name'        => MiuraPayworksMaestroPaymentMethod::PAYMENT_METHOD_NAME);
             $this->paymentMethodRepositoryContract->createPaymentMethod($paymentMethodData);
         }
 
@@ -65,8 +66,8 @@ class CreatePaymentMethod
         if($this->paymentHelper->getMiuraMasterCardPaymentMethodId() == PaymentHelper::PAY_METHOD_NOT_FOUND)
         {
             $paymentMethodData = array( 'pluginKey'   => PaymentHelper::MIURA_PLUGIN_KEY,
-                'paymentKey'  => MiuraMasterCardPaymentMethod::PAYMENT_METHOD_KEY,
-                'name'        => MiuraMasterCardPaymentMethod::PAYMENT_METHOD_NAME);
+                'paymentKey'  => MiuraPayworksMasterCardPaymentMethod::PAYMENT_METHOD_KEY,
+                'name'        => MiuraPayworksMasterCardPaymentMethod::PAYMENT_METHOD_NAME);
             $this->paymentMethodRepositoryContract->createPaymentMethod($paymentMethodData);
         }
 
@@ -74,8 +75,8 @@ class CreatePaymentMethod
         if($this->paymentHelper->getMiuraVisaElectronPaymentMethodId() == PaymentHelper::PAY_METHOD_NOT_FOUND)
         {
             $paymentMethodData = array( 'pluginKey'   => PaymentHelper::MIURA_PLUGIN_KEY,
-                'paymentKey'  => MiuraVisaElectronPaymentMethod::PAYMENT_METHOD_KEY,
-                'name'        => MiuraVisaElectronPaymentMethod::PAYMENT_METHOD_NAME);
+                'paymentKey'  => MiuraPayworksVisaElectronPaymentMethod::PAYMENT_METHOD_KEY,
+                'name'        => MiuraPayworksVisaElectronPaymentMethod::PAYMENT_METHOD_NAME);
             $this->paymentMethodRepositoryContract->createPaymentMethod($paymentMethodData);
         }
 
@@ -83,8 +84,8 @@ class CreatePaymentMethod
         if($this->paymentHelper->getMiuraVisaPaymentMethodId() == PaymentHelper::PAY_METHOD_NOT_FOUND)
         {
             $paymentMethodData = array( 'pluginKey'   => PaymentHelper::MIURA_PLUGIN_KEY,
-                'paymentKey'  => MiuraVisaPaymentMethod::PAYMENT_METHOD_KEY,
-                'name'        =>  MiuraVisaPaymentMethod::PAYMENT_METHOD_NAME);
+                'paymentKey'  => MiuraPayworksVisaPaymentMethod::PAYMENT_METHOD_KEY,
+                'name'        => MiuraPayworksVisaPaymentMethod::PAYMENT_METHOD_NAME);
             $this->paymentMethodRepositoryContract->createPaymentMethod($paymentMethodData);
         }
 

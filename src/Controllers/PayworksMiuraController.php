@@ -1,5 +1,5 @@
 <?php
-namespace Miura\Controllers;
+namespace MiuraPayworks\Controllers;
 
 use Plenty\Modules\Plugin\DataBase\Contracts\DataBase;
 use Plenty\Plugin\Controller;
@@ -11,7 +11,7 @@ use Plenty\Plugin\Log\Loggable;
  * Date: 08.02.17
  * Time: 15:53
  */
-class MiuraController  extends Controller
+class PayworksMiuraController  extends Controller
 {
     use Loggable;
     /**

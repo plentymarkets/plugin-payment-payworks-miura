@@ -1,14 +1,14 @@
 {
   "version": 1.0,
-  "name": "Miura",
+  "name": "MiuraPayworks",
   "description": "miura plugin for plentymarkets",
   "author": "plentymarkets GmbH",
   "keywords": ["miura", "methode of payment", "official", "plentymarkets", "payment"],
   "type": "payment",
-  "namespace": "Miura",
+  "namespace": "MiuraPayworks",
   "require": [],
-  "serviceProvider": "Miura\\Providers\\MiuraServiceProvider",
+  "serviceProvider": "MiuraPayworks\\Providers\\MiuraPayworksServiceProvider",
   "runOnBuild": [
-    "Miura\\Migrations\\CreatePaymentMethod"
+    "MiuraPayworks\\Migrations\\CreatePaymentMethod"
   ]
 }

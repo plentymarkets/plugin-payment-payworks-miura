@@ -1,19 +1,19 @@
 <?php //strict
 
-namespace Miura\Methods;
+namespace MiuraPayworks\Methods;
 
-use Miura\Helper\PaymentHelper;
+use MiuraPayworks\Helper\PaymentHelper;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Plugin\ConfigRepository;
 use Plenty\Plugin\Log\Loggable;
 /**
- * Class MiuraVisaPaymentMethod
- * @package Miura\Methods
+ * Class MiuraPayworksVisaPaymentMethod
+ * @package MiuraPayworks\Methods
  */
-class MiuraVisaPaymentMethod extends PaymentMethodService
+class MiuraPayworksVisaPaymentMethod extends PaymentMethodService
 {
     use Loggable;
-    const PAYMENT_METHOD_NAME = 'MiuraVisa';
+    const PAYMENT_METHOD_NAME = 'MiuraPayworksVisa';
     const PAYMENT_METHOD_KEY = 'MIURA_VISA';
     /**
      * @var ConfigRepository
@@ -21,7 +21,7 @@ class MiuraVisaPaymentMethod extends PaymentMethodService
     private $configRepository;
 
     /**
-     * MiuraVisaPaymentMethod constructor.
+     * MiuraPayworksVisaPaymentMethod constructor.
      *
      * @param ConfigRepository $configRepo
      */

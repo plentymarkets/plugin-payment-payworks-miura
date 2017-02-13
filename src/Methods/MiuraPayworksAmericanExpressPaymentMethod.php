@@ -1,27 +1,28 @@
 <?php //strict
 
-namespace Miura\Methods;
+namespace MiuraPayworks\Methods;
 
-use Miura\Helper\PaymentHelper;
+use MiuraPayworks\Helper\PaymentHelper;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Plugin\ConfigRepository;
 use Plenty\Plugin\Log\Loggable;
 /**
- * Class MiuraMaestroPaymentMethod
- * @package Miura\Methods
+ * Class MiuraPayworksAmericanExpressPaymentMethod
+ * @package MiuraPayworks\Methods
  */
-class MiuraMaestroPaymentMethod extends PaymentMethodService
+class MiuraPayworksAmericanExpressPaymentMethod extends PaymentMethodService
 {
     use Loggable;
-    const PAYMENT_METHOD_NAME = 'MiuraMaestro';
-    const PAYMENT_METHOD_KEY = 'MIURA_MAESTRO';
+
+    const PAYMENT_METHOD_NAME = 'MiuraPayworksAmericanExpress';
+    const PAYMENT_METHOD_KEY = 'MIURA_AMERICAN_EXPRESS';
     /**
      * @var ConfigRepository
      */
     private $configRepository;
 
     /**
-     * MiuraMaestroPaymentMethod constructor.
+     * MiuraPayworksPayworksAmericanExpressPaymentMethod constructor.
      *
      * @param ConfigRepository $configRepo
      */
@@ -38,11 +39,10 @@ class MiuraMaestroPaymentMethod extends PaymentMethodService
      */
     public function isActive():bool
     {
+        $miuraAmericanExpressMerchantIdentifier = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-american-express_merchant-identifier'));
+        $miuraAmericanExpressMerchantSecretKey = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-american-express_merchant-secret-key'));
 
-        $miuraMaestroMerchantIdentifier = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-maestro.merchant-identifier'));
-        $miuraMaestroMerchantSecretKey = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-maestro.merchant-secret-key'));
-
-        if(strlen($miuraMaestroMerchantIdentifier) > 0 && strlen($miuraMaestroMerchantSecretKey) > 0)
+        if(strlen($miuraAmericanExpressMerchantIdentifier) > 0 && strlen($miuraAmericanExpressMerchantSecretKey) > 0)
             return true;
 
         return false;
@@ -60,7 +60,7 @@ class MiuraMaestroPaymentMethod extends PaymentMethodService
 
 
     /**
-     * Get additional costs for Miura. Additional costs can be entered in the config.json.
+     * Get additional costs for Miura American Express. Additional costs can be entered in the config.json.
      *
      * @return float
      */
@@ -75,7 +75,7 @@ class MiuraMaestroPaymentMethod extends PaymentMethodService
      */
     public function getDescription( ):string
     {
-        $description = $this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-maestro.description');
+        $description = $this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-american-express_description');
 
         $description = trim($description);
         return $description;

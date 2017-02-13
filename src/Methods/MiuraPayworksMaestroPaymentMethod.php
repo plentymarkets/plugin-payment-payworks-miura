@@ -1,27 +1,27 @@
 <?php //strict
 
-namespace Miura\Methods;
+namespace MiuraPayworks\Methods;
 
-use Miura\Helper\PaymentHelper;
+use MiuraPayworks\Helper\PaymentHelper;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Plugin\ConfigRepository;
 use Plenty\Plugin\Log\Loggable;
 /**
- * Class MiuraMasterCardPaymentMethod
- * @package Miura\Methods
+ * Class MiuraPayworksMaestroPaymentMethod
+ * @package MiuraPayworks\Methods
  */
-class MiuraMasterCardPaymentMethod extends PaymentMethodService
+class MiuraPayworksMaestroPaymentMethod extends PaymentMethodService
 {
     use Loggable;
-    const PAYMENT_METHOD_NAME = 'MiuraMasterCard';
-    const PAYMENT_METHOD_KEY = 'MIURA_MASTER_CARD';
+    const PAYMENT_METHOD_NAME = 'MiuraPayworksMaestro';
+    const PAYMENT_METHOD_KEY = 'MIURA_MAESTRO';
     /**
      * @var ConfigRepository
      */
     private $configRepository;
 
     /**
-     * MiuraMasterCardPaymentMethod constructor.
+     * MiuraPayworksMaestroPaymentMethod constructor.
      *
      * @param ConfigRepository $configRepo
      */
@@ -38,11 +38,11 @@ class MiuraMasterCardPaymentMethod extends PaymentMethodService
      */
     public function isActive():bool
     {
-        //Miura Mastercard
-        $miuraMastercardMerchantIdentifier = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-mastercard_merchant-identifier'));
-        $miuraMastercardMerchantSecretKey = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-mastercard_merchant-secret-key'));
 
-        if(strlen($miuraMastercardMerchantIdentifier) > 0 && strlen($miuraMastercardMerchantSecretKey) > 0)
+        $miuraMaestroMerchantIdentifier = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-maestro.merchant-identifier'));
+        $miuraMaestroMerchantSecretKey = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-maestro.merchant-secret-key'));
+
+        if(strlen($miuraMaestroMerchantIdentifier) > 0 && strlen($miuraMaestroMerchantSecretKey) > 0)
             return true;
 
         return false;
@@ -75,9 +75,10 @@ class MiuraMasterCardPaymentMethod extends PaymentMethodService
      */
     public function getDescription( ):string
     {
-        $description = $this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-mastercard_description');
+        $description = $this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-maestro.description');
 
         $description = trim($description);
         return $description;
     }
+
 }

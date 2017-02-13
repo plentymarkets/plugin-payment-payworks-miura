@@ -1,27 +1,27 @@
 <?php //strict
 
-namespace Miura\Methods;
+namespace MiuraPayworks\Methods;
 
-use Miura\Helper\PaymentHelper;
+use MiuraPayworks\Helper\PaymentHelper;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Plugin\ConfigRepository;
 use Plenty\Plugin\Log\Loggable;
 /**
- * Class MiuraVisaElectronPaymentMethod
- * @package Miura\Methods
+ * Class MiuraPayworksMasterCardPaymentMethod
+ * @package MiuraPayworks\Methods
  */
-class MiuraVisaElectronPaymentMethod extends PaymentMethodService
+class MiuraPayworksMasterCardPaymentMethod extends PaymentMethodService
 {
     use Loggable;
-    const PAYMENT_METHOD_NAME = 'MiuraVisaElectron';
-    const PAYMENT_METHOD_KEY = 'MIURA_VISA_ELECTRON';
+    const PAYMENT_METHOD_NAME = 'MiuraPayworksMasterCard';
+    const PAYMENT_METHOD_KEY = 'MIURA_MASTER_CARD';
     /**
      * @var ConfigRepository
      */
     private $configRepository;
 
     /**
-     * MiuraVisaElectronPaymentMethod constructor.
+     * MiuraMasterCardPaymentMethod constructor.
      *
      * @param ConfigRepository $configRepo
      */
@@ -38,10 +38,11 @@ class MiuraVisaElectronPaymentMethod extends PaymentMethodService
      */
     public function isActive():bool
     {
-        $miuraVisaElectronMerchantIdentifier = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-visa-electron_merchant-identifier'));
-        $miuraVisaElectronMerchantSecretKey = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-visa-electron_merchant-secret-key'));
+        //Miura Mastercard
+        $miuraMastercardMerchantIdentifier = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-mastercard_merchant-identifier'));
+        $miuraMastercardMerchantSecretKey = trim($this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-mastercard_merchant-secret-key'));
 
-        if(strlen($miuraVisaElectronMerchantIdentifier) > 0 && strlen($miuraVisaElectronMerchantSecretKey) > 0)
+        if(strlen($miuraMastercardMerchantIdentifier) > 0 && strlen($miuraMastercardMerchantSecretKey) > 0)
             return true;
 
         return false;
@@ -74,10 +75,9 @@ class MiuraVisaElectronPaymentMethod extends PaymentMethodService
      */
     public function getDescription( ):string
     {
-        $description = $this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-visa-electron_description');
+        $description = $this->configRepository->get(PaymentHelper::MIURA_PLUGIN_NAME.'.miura-mastercard_description');
 
         $description = trim($description);
         return $description;
     }
-
 }
