@@ -2,13 +2,13 @@
 
 namespace PayworksMiura\Providers;
 
-use PayworksMiura\Methods\PayworksMiuraVisaElectronPaymentMethod;
 use Plenty\Plugin\ServiceProvider;
 use PayworksMiura\Helper\PayworksMiuraHelper;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodContainer;
 use Plenty\Plugin\Events\Dispatcher;
 
-use PayworksMiura\Methods\PayworksMiuraPaymentMethod;
+use PayworksMiura\Methods\PayworksMiuraVisaPaymentMethod;
+use PayworksMiura\Methods\PayworksMiuraVisaElectronPaymentMethod;
 
 use Plenty\Modules\Basket\Events\Basket\AfterBasketChanged;
 use Plenty\Modules\Basket\Events\BasketItem\AfterBasketItemAdd;
