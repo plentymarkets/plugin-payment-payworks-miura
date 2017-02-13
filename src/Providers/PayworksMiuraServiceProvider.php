@@ -45,26 +45,8 @@ use Plenty\Modules\Basket\Events\Basket\AfterBasketCreate;
                                 [ AfterBasketChanged::class, AfterBasketItemAdd::class, AfterBasketCreate::class ]
          );
 
-         // Listen for the event that gets the payment method content
-         $eventDispatcher->listen(GetPaymentMethodContent::class,
-                 function(GetPaymentMethodContent $event) use( $paymentHelper)
-                 {
-                     if($event->getMop() == $paymentHelper->getPaymentMethod())
-                     {
-                         $event->setValue('');
-                         $event->setType('continue');
-                     }
-                 });
-
-         // Listen for the event that executes the payment
-         $eventDispatcher->listen(ExecutePayment::class,
-             function(ExecutePayment $event) use( $paymentHelper)
-             {
-                 if($event->getMop() == $paymentHelper->getPaymentMethod())
-                 {
-                     $event->setValue('<h1>PayworksMiura<h1>');
-                     $event->setType('htmlContent');
-                 }
-             });
+         /**
+          * No listening for GetPaymentMethodContent or ExecutePayment, this is handle by the app
+          */
      }
  }

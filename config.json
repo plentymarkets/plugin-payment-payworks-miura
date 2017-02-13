@@ -1,132 +1,72 @@
 [
   {
-    "tab": "Settings",
-    "key": "name",
-    "label": "Name",
+    "tab": "Miura-VISA",
+    "key": "miuravisa-merchant_identifier",
+    "label": "Merchant Identifier",
     "type": "text",
-    "default": "Invoice"
+    "default": "Identifier"
   },
   {
-    "tab": "Settings",
-    "key": "infoPage.type",
-    "label": "Information page",
-    "type": "dropdown",
-    "possibleValues": {
-      "0": "None",
-      "1": "External content",
-      "2": "Internal content"
-    },
-    "default": "0"
-  },
-  {
-    "tab": "Settings",
-    "key": "infoPage.intern",
-    "label": "Internal information page",
-    "type": "category_select"
-  },
-  {
-    "tab": "Settings",
-    "key": "infoPage.extern",
-    "label": "External information page",
+    "tab": "Miura-VISA",
+    "key": "miuravisa-merchant_secret_key",
+    "label": "Merchant Secret Key",
     "type": "text",
-    "default": ""
+    "default": "Secret Key"
   },
   {
-    "tab": "Settings",
-    "key": "shippingCountry",
-    "label": "Shipping country",
-    "type": "multi_select",
-    "possibleValues": {
-      "shippingCountry.de": "Deutschland",
-      "shippingCountry.at": "Österreich",
-      "shippingCountry.ch": "Schweiz",
-      "shippingCountry.es": "Spanien",
-      "shippingCountry.uk": "Großbritanien",
-      "shippingCountry.fr": "Frankreich",
-      "shippingCountry.gr": "Griechenland",
-      "shippingCountry.it": "Italien"
-    },
-    "default": ""
-  },
-  {
-    "tab": "Settings",
-    "key": "logo",
-    "label": "Logo",
-    "type": "dropdown",
-    "possibleValues": {
-      "0": "Ohne Logo",
-      "1": "Logo-Url"
-    },
-    "default": "0"
-  },
-  {
-    "tab": "Settings",
-    "key": "logo.url",
-    "label": "Logo-URL",
+    "tab": "Miura-VISA Electron",
+    "key": "miuravisaelectron-merchant_identifier",
+    "label": "Merchant Identifier",
     "type": "text",
-    "default": ""
+    "default": "Identifier"
   },
   {
-    "tab": "Interface",
-    "key": "fee.domestic",
-    "label": "Aufpreis Inland",
+    "tab": "Miura-VISA Electron",
+    "key": "miuravisaelectron-merchant_secret_key",
+    "label": "Merchant Secret Key",
     "type": "text",
-    "default": "0,00"
+    "default": "Secret Key"
   },
   {
-    "tab": "Interface",
-    "key": "fee.foreign",
-    "label": "Aufpreis Ausland",
+    "tab": "Miura-MasterCard",
+    "key": "miuramastercard-merchant_identifier",
+    "label": "Merchant Identifier",
     "type": "text",
-    "default": "0,00"
+    "default": "Identifier"
   },
   {
-    "tab": "Interface",
-    "key": "showBankData",
-    "label": "Bankdaten anzeigen",
-    "type": "checkbox",
-    "default": false
-  },
-  {
-    "tab": "Interface",
-    "key": "showBookingText",
-    "label": "Verwendungszweck anzeigen",
-    "type": "checkbox",
-    "default": false
-  },
-  {
-    "tab": "Interface",
-    "key": "invoiceAddressEqualShippingAddress",
-    "label": "Rechnungsadresse gleich Lieferadresse",
-    "type": "checkbox",
-    "default": false
-  },
-  {
-    "tab": "Interface",
-    "key": "disallowInvoiceForGuest",
-    "label": "Kauf auf Rechnung für Gastbestellungen verbieten",
-    "type": "checkbox",
-    "default": false
-  },
-  {
-    "tab": "Interface",
-    "key": "quorumOrders",
-    "label": "Mindestanzahl an Bestellungen",
+    "tab": "Miura-MasterCard",
+    "key": "miuramastercard-merchant_secret_key",
+    "label": "Merchant Secret Key",
     "type": "text",
-    "default": "0"
+    "default": "Secret Key"
   },
   {
-    "tab": "Interface",
-    "key": "minimumAmount",
-    "label": "Minimalbetrag für Kauf auf Rechnung in Euro",
+    "tab": "Miura-American Express",
+    "key": "miuraamericanexpress-merchant_identifier",
+    "label": "Merchant Identifier",
     "type": "text",
-    "default": "0,00"
+    "default": "Identifier"
   },
   {
-    "tab": "Interface",
-    "key": "maximumAmount",
-    "label": "Maximalbetrag für Kauf auf Rechnung in Euro",
+    "tab": "Miura-American Express",
+    "key": "miuraamericanexpress-merchant_secret_key",
+    "label": "Merchant Secret Key",
     "type": "text",
-    "default": "0,00"
+    "default": "Secret Key"
+  },
+  {
+    "tab": "Miura-Maestro",
+    "key": "miuramaestro-merchant_identifier",
+    "label": "Merchant Identifier",
+    "type": "text",
+    "default": "Identifier"
+  },
+  {
+    "tab": "Miura-Maestro",
+    "key": "miuramaestro-merchant_secret_key",
+    "label": "Merchant Secret Key",
+    "type": "text",
+    "default": "Secret Key"
   }
 ]
