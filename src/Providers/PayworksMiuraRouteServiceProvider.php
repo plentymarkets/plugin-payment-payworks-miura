@@ -23,7 +23,10 @@ class PayworksMiuraRouteServiceProvider extends RouteServiceProvider
     public function map(Router $router)
     {
 
-        //call http://master.plentymarkets.com/payworksmiura/configuration
-        $router->get('payworksmiura/configuration', 'PayworksMiura\Controllers\SettingsController@configuration');
+        //call {SHOP_DOMAIN}/payworksmiura/configuration
+        $router->get('payworksmiura/configuration', [
+            'middleware' => 'oauth',
+            'uses'       => 'PayworksMiura\Controllers\SettingsController@configuration'
+        ]);
     }
 }
