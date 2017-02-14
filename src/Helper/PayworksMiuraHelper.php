@@ -3,7 +3,6 @@
 namespace PayworksMiura\Helper;
 
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodRepositoryContract;
-use Plenty\Modules\Payment\Method\Models\PaymentMethod;
 
 /**
  * Class PayworksMiuraHelper
@@ -13,6 +12,10 @@ use Plenty\Modules\Payment\Method\Models\PaymentMethod;
 class PayworksMiuraHelper
 {
 
+    /**
+     * @var string
+     */
+    const PLUGIN_NAME = 'PayworksMiura';
     /**
      * @var string
      */
@@ -92,5 +95,37 @@ class PayworksMiuraHelper
         }
 
         return self::NO_PAYMENTMETHOD_FOUND;
+    }
+
+    /**
+     * Returns the complete Merchant Identifier key of the configuration
+     * @return string
+     */
+    public static function getMerchantIdentifierKey(){
+        return self::PLUGIN_NAME.'.merchant_identifier';
+    }
+
+    /**
+     * Returns the complete Merchant Secret Key key of the configuration
+     * @return string
+     */
+    public static function getMerchantSecretKeyKey(){
+        return self::PLUGIN_NAME.'.merchant_secret_key';
+    }
+
+    /**
+     * Returns the complete Sepa Lastschriftmandat key of the configuration
+     * @return string
+     */
+    public static function getSepaLastschriftmandatKey(){
+        return self::PLUGIN_NAME.'.sepa_lastschriftmandat';
+    }
+
+    /**
+     * Returns the complete Datenschutzrechtliche Informationen key of the configuration
+     * @return string
+     */
+    public static function getDatenschutzrechtlicheInformationen() {
+        return self::PLUGIN_NAME.'.datenschutzrechtliche_informationen';
     }
 }

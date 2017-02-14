@@ -8,9 +8,6 @@ use Plenty\Modules\Payment\Method\Contracts\PaymentMethodContainer;
 
 use PayworksMiura\Methods\PayworksMiuraPaymentMethod;
 
-use Plenty\Modules\Basket\Events\Basket\AfterBasketChanged;
-use Plenty\Modules\Basket\Events\BasketItem\AfterBasketItemAdd;
-use Plenty\Modules\Basket\Events\Basket\AfterBasketCreate;
 
 /**
  * Class PayworksMiuraServiceProvider
@@ -20,7 +17,7 @@ use Plenty\Modules\Basket\Events\Basket\AfterBasketCreate;
  {
      public function register()
      {
-         $this->getApplication()->register(PayworksMiuraRouteServiceProvider::class);
+         $this->getApplication()->register( PayworksMiuraRouteServiceProvider::class );
      }
 
      /**
@@ -37,8 +34,9 @@ use Plenty\Modules\Basket\Events\Basket\AfterBasketCreate;
 
          foreach (PayworksMiuraHelper::$paymentMethods as $paymentKey => $paymentName)
          {
-             $payContainer->register( PayworksMiuraHelper::PLUGIN_KEY.'::'.$paymentKey, PayworksMiuraPaymentMethod::class,
-                 [ AfterBasketChanged::class, AfterBasketItemAdd::class, AfterBasketCreate::class ]
+             $payContainer->register(   PayworksMiuraHelper::PLUGIN_KEY.'::'.$paymentKey,
+                                        PayworksMiuraPaymentMethod::class,
+                                        []
              );
          }
 
