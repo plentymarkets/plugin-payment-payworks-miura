@@ -5,7 +5,6 @@ namespace PayworksMiura\Providers;
 use Plenty\Plugin\ServiceProvider;
 use PayworksMiura\Helper\PayworksMiuraHelper;
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodContainer;
-use Plenty\Plugin\Events\Dispatcher;
 
 use PayworksMiura\Methods\PayworksMiuraPaymentMethod;
 
@@ -29,11 +28,9 @@ use Plenty\Modules\Basket\Events\Basket\AfterBasketCreate;
       *
       * @param PayworksMiuraHelper $paymentHelper
       * @param PaymentMethodContainer $payContainer
-      * @param Dispatcher $eventDispatcher
       */
      public function boot(  PayworksMiuraHelper $paymentHelper,
-                            PaymentMethodContainer $payContainer,
-                            Dispatcher $eventDispatcher)
+                            PaymentMethodContainer $payContainer)
      {
          // Create the ID of the payment method if it doesn't exist yet
          $paymentHelper->createMopIfNotExists();

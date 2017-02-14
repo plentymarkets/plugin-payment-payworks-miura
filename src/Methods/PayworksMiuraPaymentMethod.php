@@ -4,8 +4,6 @@ namespace PayworksMiura\Methods;
 
 use Plenty\Modules\Payment\Method\Contracts\PaymentMethodService;
 use Plenty\Plugin\ConfigRepository;
-use Plenty\Modules\Basket\Contracts\BasketRepositoryContract;
-use Plenty\Modules\Basket\Models\Basket;
 
 /**
  * Class PayworksMiuraPaymentMethod
@@ -18,11 +16,9 @@ class PayworksMiuraPaymentMethod extends PaymentMethodService
      * Return true if the payment method is active, else return false
      *
      * @param ConfigRepository $configRepository
-     * @param BasketRepositoryContract $basketRepositoryContract
      * @return bool
      */
-    public function isActive( ConfigRepository $configRepository,
-                              BasketRepositoryContract $basketRepositoryContract):bool
+    public function isActive( ConfigRepository $configRepository ):bool
     {
         if( trim($configRepository->get('PayworksMiura.merchant_identifier')) != '' && trim($configRepository->get('PayworksMiura.merchant_secret_key')) !='')
         {
