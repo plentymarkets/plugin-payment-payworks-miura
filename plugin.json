@@ -6,8 +6,6 @@
   "keywords": ["payworks", "miura",  "Rechnung", "official", "plentymarkets", "payment"],
   "type": "payment",
   "namespace": "PayworksMiura",
-  "require": [],
   "email": "payment@plentymarkets.eu",
-  "phone": "",
   "serviceProvider": "PayworksMiura\\Providers\\PayworksMiuraServiceProvider"
 }

@@ -29,11 +29,22 @@ class PayworksMiuraHelper
      * @var array
      */
     public static $paymentMethods = [
-        'PAYWORKSMIURA_AMERICANEXPRESS' => 'PayworksMiura American Express',
-        'PAYWORKSMIURA_MAESTRO'         => 'PayworksMiura Maestro',
-        'PAYWORKSMIURA_MASTERCARD'      => 'PayworksMiura MasterCard',
-        'PAYWORKSMIURA_VISA'            => 'PayworksMiura Visa',
-        'PAYWORKSMIURA_VISAELECTRON'    => 'PayworksMiura Visa Electron'
+
+        'UNKNOWN' =>'PayworksMiura Unknown',
+        'AMERICAN_EXPRESS' =>'PayworksMiura American Express',
+        'DINERS' =>'PayworksMiura Diners',
+        'DISCOVER' =>'PayworksMiura Discover',
+        'JCB' =>'PayworksMiura JCB',
+        'MAESTRO' =>'PayworksMiura Maestro',
+        'MASTERCARD' =>'PayworksMiura MasterCard',
+        'UNION_PAY' =>'PayworksMiura Union Pay',
+        'VISA' =>'PayworksMiura Visa',
+        'VISA_ELECTRON' =>'PayworksMiura Visa Electron',
+        'VISA_INTERLINK' =>'PayworksMiura Interlink',
+        'DISCOVER_COMMON_DEBIT' =>'PayworksMiura Discover Common Debit',
+        'MASTERCARD_COMMON_DEBIT' =>'PayworksMiura Common Debit',
+        'VISA_COMMON_DEBIT' =>'PayworksMiura Visa Common Debit',
+        'GH_LINK' =>'PayworksMiura GH Link'
     ];
 
     /**
