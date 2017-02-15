@@ -38,7 +38,7 @@ class SettingsController extends Controller
             /**
              * @var $mopModel Plenty\Modules\Payment\Method\Models\PaymentMethod
              */
-            $response['methodsOfPayment'][$mopModel->paymentKey] = $mopModel->id;
+            $response['methodsOfPayment'][] = $mopModel->toArray();
         }
 
         return $response;
