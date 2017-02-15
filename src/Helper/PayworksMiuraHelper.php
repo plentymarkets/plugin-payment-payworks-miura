@@ -118,7 +118,7 @@ class PayworksMiuraHelper
      * @return string
      */
     public static function getSepaLastschriftmandatKey(){
-        return self::PLUGIN_NAME.'.sepa_lastschriftmandat';
+        return self::PLUGIN_NAME.'.sepa_mandate';
     }
 
     /**
@@ -126,6 +126,6 @@ class PayworksMiuraHelper
      * @return string
      */
     public static function getDatenschutzrechtlicheInformationen() {
-        return self::PLUGIN_NAME.'.datenschutzrechtliche_informationen';
+        return self::PLUGIN_NAME.'.privacy_policy';
     }
 }
