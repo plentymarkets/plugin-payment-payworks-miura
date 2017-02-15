@@ -21,10 +21,10 @@ class SettingsController extends Controller
         //fetch plugin config
         $repo = pluginApp( ConfigRepository::class );
 
-        $response['identifier']                             = $repo->get( PayworksMiuraHelper::getMerchantIdentifierKey() );
-        $response['merchantSecretKey']                      = $repo->get( PayworksMiuraHelper::getMerchantSecretKeyKey() );
-        $response['sepaLastschriftmandat']                  = $repo->get( PayworksMiuraHelper::getSepaLastschriftmandatKey() );
-        $response['datenschutzrechtlicheInformationen']     = $repo->get( PayworksMiuraHelper::getDatenschutzrechtlicheInformationen() );
+        $response['identifier']        = $repo->get( PayworksMiuraHelper::getMerchantIdentifierKey() );
+        $response['merchantSecretKey'] = $repo->get( PayworksMiuraHelper::getMerchantSecretKeyKey() );
+        $response['sepaMandate']       = $repo->get( PayworksMiuraHelper::getSepaLastschriftmandatKey() );
+        $response['privacyPolicy']     = $repo->get( PayworksMiuraHelper::getDatenschutzrechtlicheInformationen() );
 
 
         //fetch registered payment method info
