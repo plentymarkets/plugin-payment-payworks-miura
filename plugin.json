@@ -1,11 +1,18 @@
 {
-  "version": 1.0,
-  "name": "PayworksMiura",
-  "description": "payworks miura plugin for plentymarkets",
-  "author": "plentymarkets GmbH",
-  "keywords": ["payworks", "miura",  "Rechnung", "official", "plentymarkets", "payment"],
-  "type": "payment",
-  "namespace": "PayworksMiura",
-  "email": "payment@plentymarkets.eu",
-  "serviceProvider": "PayworksMiura\\Providers\\PayworksMiuraServiceProvider"
+  "name"              : "PayworksMiura",
+  "namespace"         : "PayworksMiura",
+  "type"              : "payment",
+  "version"           : "1.0.0",
+  "license"           : "",
+  "pluginIcon"        : "",
+  "price"             : 0.00,
+  "description"       : "payworks miura plugin for plentymarkets",
+  "shortDescription"  : {"de":"payworks miura plugin für plentymarkets","en":"payworks miura plugin for plentymarkets"},
+  "categories"        : [],
+  "keywords"          : ["payworks", "miura", "official", "plentymarkets", "payment"],
+  "author"            : "plentymarkets GmbH",
+  "authorIcon"        : "",
+  "email"             : "payment@plentymarkets.eu",
+  "phone"             : "",
+  "serviceProvider"   : "PayworksMiura\\Providers\\PayworksMiuraServiceProvider"
 }
