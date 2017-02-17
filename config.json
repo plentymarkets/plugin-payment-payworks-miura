@@ -10,7 +10,7 @@
     "tab": "Einstellung",
     "key": "merchant_secret_key",
     "label": "Merchant Secret Key",
-    "type": "text",
+    "type": "password",
     "default": ""
   },
   {
