@@ -6,7 +6,7 @@ This is the official **Payworks Miura** plugin developed by plentymarkets. Integ
 
 ## Requirements
 
-This is a plugin for [plentymarkets 7](https://www.plentymarkets.com) customers who take advantage of plentyPOS Essential or plentyPOS Flat. You need a Miura POS terminal to use this payment method.
+This is a plugin for [plentymarkets 7](https://www.plentymarkets.com) customers who take advantage of plentyPOS Essential or plentyPOS Flat. You need a Miura POS terminal and a plentyPOS contract to use this payment method.
 
 ## Installing
 
