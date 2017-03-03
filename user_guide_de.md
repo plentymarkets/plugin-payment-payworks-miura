@@ -1,5 +1,5 @@
 
-# User Guide für das Payworks Miura-Plugin
+# User Guide für das PayworksMiura-Plugin
 
 **Das Payworks Miura-Plugin ist Bestandteil des plentyPOS Servicepakets und daher bereits installiert und eingerichtet, wenn Sie Ihre als plentyPOS Vertragskunde Ihre Hardware in Betrieb nehmen. Die folgende Beschreibung richtet sich an plentymarkets Support-Mitarbeiter. Nehmen Sie als plentyPOS Vertragskunde keine Änderungen an den vorkonfigurierten Einstellungen vor.**
 
