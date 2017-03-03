@@ -5,9 +5,7 @@
 
 <div class="container-toc"></div>
 
-## Registrierung bei Payworks
-
-Das PayworksMiura-Plugin integriert das Miura-Kartenterminal des plentyPOS Hardware-Bundles. Die Registrierung bei Payworks ist Bestandteil Ihres plentyPOS Vertrags und wird vom Support durchgeführt. Die Installation und Einrichtung des PayworksMiura-Plugins ist ebenfalls Bestandteil Ihres plentyPOS Vertrags.
+Beim Anlegen eines Kontos bei Payworks erhalten Sie einen **Merchant Identifier** und einen **Mechant Secret Key**. Diese Zugangsdaten benötigen Sie, um die Zahlungsart Payworks Miura in plentymarkets zu aktivieren.
 
 ## Plugin installieren
 
@@ -23,8 +21,8 @@ Speichern Sie nun die Zugangsdaten des Payworks-Kontos.
 2. Wechseln Sie in das Tab **Plugins** und öffnen Sie **PayworksMiura**.
 3. Klicken Sie in der Übersicht links auf **Konfiguration**.
 → Die Einstellungen werden angezeigt.
-4. Geben Sie den Merchant Identifier des Payworks-Kontos ein.
-5. Geben Sie den Mechant Secret Key des Payworks-Kontos ein.
+4. Geben Sie den **Merchant Identifier** des Payworks-Kontos ein.
+5. Geben Sie den **Mechant Secret Key** des Payworks-Kontos ein.
 6. **Speichern** Sie die Einstellungen.
 → Das Payworks-Konto wird hinzugefügt.
 
