@@ -9,7 +9,7 @@ Das Payworks Miura-Plugin integriert das Miura-Kartenterminal des plentyPOS Hard
 
 ## Integration von Payworks Miura in plentymarkets
 
-**Das Payworks Miura-Plugin ist Bestandteil des plentyPOS Servicepakets und daher bereits installiert und eingerichtet. Die folgende Beschreibung dient lediglich zu Ihrem Verständnis.**
+**Das Payworks Miura-Plugin ist Bestandteil des plentyPOS Servicepakets und daher bereits installiert und eingerichtet, wenn Sie Ihre plentyPOS Hardware in Betrieb nehmen. Die folgende Beschreibung dient lediglich zu Ihrem Verständnis.**
 
 Das Payworks Miura-Plugin ist im Menü **Start » Plugins » Tab: Einkäufe** installiert. Klicken Sie im Tab **Plugins** auf **Payworks Miura**. Unter **Konfiguration** finden sie den **Merchant Identifier** und den **Merchant Secret Key** für Ihr Kartenterminal.
 
