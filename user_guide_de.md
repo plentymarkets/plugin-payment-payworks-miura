@@ -1,21 +1,42 @@
 
 # User Guide für das Payworks Miura-Plugin
 
+**Das Payworks Miura-Plugin ist Bestandteil des plentyPOS Servicepakets und daher bereits installiert und eingerichtet, wenn Sie Ihre als plentyPOS Vertragskunde Ihre Hardware in Betrieb nehmen. Die folgende Beschreibung richtet sich an plentymarkets Support-Mitarbeiter. Nehmen Sie als plentyPOS Vertragskunde keine Änderungen an den vorkonfigurierten Einstellungen vor.**
+
 <div class="container-toc"></div>
 
 ## Registrierung bei Payworks
 
 Das Payworks Miura-Plugin integriert das Miura-Kartenterminal des plentyPOS Hardware-Bundles. Die Registrierung bei Payworks ist Bestandteil Ihres plentyPOS Vertrags und wird vom Support durchgeführt. Die Installation und Einrichtung des Payworks Miura-Plugins ist ebenfalls Bestandteil Ihres plentyPOS Vertrags.
 
-## Integration von Payworks Miura in plentymarkets
+## Plugin installieren
 
-**Das Payworks Miura-Plugin ist Bestandteil des plentyPOS Servicepakets und daher bereits installiert und eingerichtet, wenn Sie Ihre plentyPOS Hardware in Betrieb nehmen. Die folgende Beschreibung dient lediglich zu Ihrem Verständnis. Nehmen Sie keine Änderungen an den vorkonfigurierten Einstellungen vor.**
+Wie Sie Plugins installieren und bereitstellen, erfahren Sie in unseren FAQs [plentyMarketplace](https://marketplace.plentymarkets.com/faq).
 
-Das Payworks Miura-Plugin ist im Menü **Start » Plugins » Tab: Plugins** installiert. Klicken Sie im Tab **Plugins** auf **Payworks Miura**. Unter **Konfiguration** finden sie den **Merchant Identifier** und den **Merchant Secret Key** für Ihr Kartenterminal.
+## Payworks-Zugangsdaten speichern
 
-## Geräteanbindung
+Speichern Sie nun die Zugangsdaten des Payworks-Kontos.
 
-Das Plugin wird im Menü **Einstellungen » Mandant (Shop) » Standard » POS » Tab: Zahlungsart** des plentymarkets Backend freigeschaltet. Im Bereich **EC-Terminal** ist für die Integration die Option **Anbindung** die Einstellung **Payworks/Miura** ausgewählt.
+#####Payworks-Zugangsdaten speichern:
+
+1. Nachdem Sie das PayworksMiura-Plugin im plentymarkets Marketplace gekauft haben, installieren Sie es im Menü **Start » Plugins » Tab: Einkäufe**.
+2. Wechseln Sie in das Tab **Plugins** und öffnen Sie **PayworksMiura**.
+3. Klicken Sie in der Übersicht links auf **Konfiguration**.
+→ Die Einstellungen werden angezeigt.
+4. Geben Sie den Merchant Identifier des Payworks-Kontos ein.
+5. Geben Sie den Mechant Secret Key des Payworks-Kontos ein.
+6. **Speichern** Sie die Einstellungen.
+→ Das Payworks-Konto wird hinzugefügt.
+
+## Zahlungsart für POS aktivieren
+
+Aktivieren Sie nun die Zahlungsart im plentymarkets Backend, damit POS-Aufträge korrekt abgewickelt werden.
+
+##### Zahlungsart für POS aktivieren:
+
+1. Öffnen Sie das Menü **Einstellungen » Mandant (Shop) » Standard » POS » Tab: Zahlungsart**.
+2. Wählen Sie für die Option **Anbindung** die Einstellung **Payworks/Miura**.
+3. **Speichern** Sie die Einstellungen.
 
 ## Lizenz
 
