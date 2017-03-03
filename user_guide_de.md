@@ -5,15 +5,13 @@
 
 <div class="container-toc"></div>
 
-Beim Anlegen eines Kontos bei Payworks erhalten Sie einen **Merchant Identifier** und einen **Mechant Secret Key**. Diese Zugangsdaten benötigen Sie, um die Zahlungsart Payworks Miura in plentymarkets zu aktivieren.
-
 ## Plugin installieren
 
-Wie Sie Plugins installieren und bereitstellen, erfahren Sie in unseren FAQs [plentyMarketplace](https://marketplace.plentymarkets.com/faq).
+Installieren Sie zunächst das PayworksMiura-Plugin und stellen Sie das Plugin bereit. Wie Sie Plugins installieren und bereitstellen, erfahren Sie in unseren [FAQs](https://marketplace.plentymarkets.com/faq).
 
 ## Payworks-Zugangsdaten speichern
 
-Speichern Sie nun die Zugangsdaten des Payworks-Kontos.
+Beim Anlegen eines Kontos bei Payworks erhalten Sie einen **Merchant Identifier** und einen **Mechant Secret Key**. Diese Zugangsdaten benötigen Sie, um die Zahlungsart Payworks Miura in plentymarkets zu aktivieren. Gehen Sie wie unten beschrieben vor, um die Zugangsdaten des Payworks-Kontos in plentymarkets zu speichern.
 
 #####Payworks-Zugangsdaten speichern:
 
