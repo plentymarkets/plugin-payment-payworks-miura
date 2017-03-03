@@ -33,6 +33,7 @@ Aktivieren Sie nun die Zahlungsart im plentymarkets Backend, damit POS-Aufträge
 1. Öffnen Sie das Menü **Einstellungen » Mandant (Shop) » Standard » POS » Tab: Zahlungsart**.
 2. Wählen Sie für die Option **Anbindung** die Einstellung **Payworks/Miura**.
 3. **Speichern** Sie die Einstellungen.
+→ Die Zahlungsart ist aktiv.
 
 ## Lizenz
 
