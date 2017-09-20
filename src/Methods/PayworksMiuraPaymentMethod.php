@@ -34,12 +34,6 @@ class PayworksMiuraPaymentMethod extends PaymentMethodService
      */
     public function isActive():bool
     {
-
-        if( $this->getMerchantIdentifierValue() != '' &&  $this->getMerchantSecretKeyValue() !='')
-        {
-            return true;
-        }
-
         return false;
     }
 
